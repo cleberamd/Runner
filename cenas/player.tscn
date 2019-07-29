@@ -1,0 +1,59 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://imagens/run-shoting/sprite_1.png" type="Texture" id=1]
+[ext_resource path="res://imagens/run-shoting/sprite_2.png" type="Texture" id=2]
+[ext_resource path="res://imagens/run-shoting/sprite_3.png" type="Texture" id=3]
+[ext_resource path="res://imagens/run-shoting/sprite_4.png" type="Texture" id=4]
+[ext_resource path="res://imagens/run-shoting/sprite_5.png" type="Texture" id=5]
+[ext_resource path="res://imagens/run-shoting/sprite_6.png" type="Texture" id=6]
+[ext_resource path="res://imagens/run/sprite_1.png" type="Texture" id=7]
+[ext_resource path="res://imagens/run/sprite_2.png" type="Texture" id=8]
+[ext_resource path="res://imagens/run/sprite_3.png" type="Texture" id=9]
+[ext_resource path="res://imagens/run/sprite_4.png" type="Texture" id=10]
+[ext_resource path="res://imagens/run/sprite_5.png" type="Texture" id=11]
+[ext_resource path="res://imagens/run/sprite_6.png" type="Texture" id=12]
+[ext_resource path="res://imagens/jump-shoot/sprite_1.png" type="Texture" id=13]
+[ext_resource path="res://imagens/jump-shoot/sprite_2.png" type="Texture" id=14]
+[ext_resource path="res://imagens/jump/sprite_1.png" type="Texture" id=15]
+[ext_resource path="res://imagens/jump/sprite_2.png" type="Texture" id=16]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 26.8778
+height = 47.7861
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "run-shoot",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "jump-shoot",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "jump",
+"speed": 3.0
+} ]
+
+[node name="player" type="Node2D"]
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( -0.124393, 0.732987 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
+frames = SubResource( 2 )
+animation = "run"
+frame = 2
+playing = true
